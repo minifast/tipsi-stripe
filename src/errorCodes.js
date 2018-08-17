@@ -30,10 +30,10 @@ const errorCodes = {
     description: 'Source polling unknown error',
   },
   deviceNotSupportsNativePay: {
-    errorCode: 'deviceSupportsApplePay',
+    errorCode: 'deviceNotSupportsNativePay',
     description: Platform.select({
       ios: 'This device does not support Apple Pay',
-      android: 'This device does not support Android Pay',
+      android: 'This device does not support Google Pay',
     }),
   },
   noPaymentRequest: {
