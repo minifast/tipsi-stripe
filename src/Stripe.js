@@ -8,6 +8,10 @@ import errorCodes from './errorCodes'
 const { StripeModule } = NativeModules
 
 class Stripe {
+  static get errorCodes() {
+    return errorCodes
+  }
+
   stripeInitialized = false
 
   setOptions = (options = {}) => {
@@ -15,7 +19,9 @@ class Stripe {
       types.setOptionsOptionsPropTypes,
       options, 'options', 'Stripe.setOptions'
     )
+
     this.stripeInitialized = true
+
     return StripeModule.init(options, Stripe.errorCodes)
   }
 
@@ -167,11 +173,6 @@ class Stripe {
       params, 'params', 'Stripe.createSourceWithParams'
     )
     return StripeModule.createSourceWithParams(params)
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  static get errorCodes() {
-    return errorCodes
   }
 }
 

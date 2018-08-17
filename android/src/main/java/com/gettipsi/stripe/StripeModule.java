@@ -112,6 +112,7 @@ public class StripeModule extends ReactContextBaseJavaModule {
 
     if (mErrorCodes == null) {
       mErrorCodes = errorCodes;
+      getPayFlow().setErrorCodes(errorCodes);
     }
   }
 
